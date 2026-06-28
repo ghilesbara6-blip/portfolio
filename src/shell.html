@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 <style>
 __STYLES__
 </style>
@@ -48,6 +49,7 @@ __STYLES__
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
   <div class="hero-bg-strands" id="hero-strands" aria-hidden="true"></div>
+  <div class="hero-bg-rays" id="hero-rays" aria-hidden="true"></div>
   <div class="hero-vignette" aria-hidden="true"></div>
   <div class="wrap hero-content">
     <span class="hero-kicker">Web & Cross-Platform Developer — Béjaïa, Algeria</span>
@@ -61,6 +63,15 @@ __STYLES__
       <div class="hero-meta-item">Stack<b>C · Rust · Flutter</b></div>
       <div class="hero-meta-item">Focus<b>Web · Mobile · Systems</b></div>
       <div class="hero-meta-item">Based in<b>Béjaïa, DZ</b></div>
+    </div>
+
+    <!-- ── FallingText physics zone ── -->
+    <div class="falling-text-section" id="falling-text-section">
+      <div class="falling-text-wrap" id="falling-text-wrap">
+        <div id="falling-text-target" class="falling-text-target"></div>
+        <div id="falling-text-canvas" class="falling-text-canvas"></div>
+        <span class="ft-hint" id="ft-hint">↑ hover to break things</span>
+      </div>
     </div>
   </div>
   <div class="scroll-cue"><span class="line"></span>Scroll</div>
@@ -259,6 +270,7 @@ __STYLES__
 
 
 <footer class="site-footer">
+  <div class="footer-aurora" id="footer-aurora" aria-hidden="true"></div>
   <div class="footer-inner wrap">
 
     <div class="footer-brand">

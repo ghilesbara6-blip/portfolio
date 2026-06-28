@@ -25,6 +25,8 @@ OUT_PATH = os.path.join(ROOT, "dist", "index.html")
 COMPONENT_ORDER = [
     "noise.js",
     "strands.js",
+    "siderays.js",
+    "softaurora.js",
     "colorbends.js",
     "shapeblur.js",
     "circulargallery.js",
@@ -44,6 +46,7 @@ COMPONENT_ORDER = [
     "spotlightcards.js",
     "sitesearchbar.js",
     "docknavbar.js",
+    "fallingtext.js",
 ]
 
 

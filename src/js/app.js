@@ -24,6 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
     scale: 1.6
   });
 
+  // ---------- Hero SideRays ----------
+  initSideRays(document.getElementById('hero-rays'), {
+    speed:      2.5,
+    rayColor1:  '#7C3AED',
+    rayColor2:  '#06B6D4',
+    intensity:  2,
+    spread:     2.8,
+    origin:     'top-right',
+    tilt:       0,
+    saturation: 1.5,
+    blend:      0.75,
+    falloff:    1.6,
+    opacity:    0.85,
+  });
+
   // ---------- Hero name — Text3DFlip ----------
   initText3DFlip(document.getElementById('flip-bara'), {
     text: 'Bara',
@@ -347,6 +362,50 @@ document.addEventListener('DOMContentLoaded', () => {
       onSelect: () => document.getElementById('hero').scrollIntoView({ behavior: 'smooth' })
     }
   ]);
+
+  // ---------- FallingText (Hero physics text) ----------
+  initFallingText(
+    document.getElementById('falling-text-wrap'),
+    document.getElementById('falling-text-target'),
+    document.getElementById('falling-text-canvas'),
+    document.getElementById('ft-hint'),
+    {
+      text: 'Reverse engineering · OS development · Cybersecurity · Local AI · Flutter · Rust · C · Web · Mobile · Systems · Béjaïa · Algeria',
+      highlightWords: ['Reverse', 'OS', 'Cybersecurity', 'Local', 'Flutter', 'Rust', 'Web', 'Mobile', 'Systems'],
+      highlightClass: 'highlighted',
+      trigger: 'hover',
+      gravity: 0.56,
+      mouseConstraintStiffness: 0.9,
+      fontSize: 'clamp(0.78rem, 1.3vw, 1rem)'
+    }
+  );
+  // Mark wrap as active for CSS pointer-events once hovered
+  document.getElementById('falling-text-wrap').addEventListener('mouseenter', function onFirst() {
+    this.classList.add('ft-active');
+    this.removeEventListener('mouseenter', onFirst);
+  });
+  document.getElementById('falling-text-wrap').addEventListener('touchstart', function onFirstT() {
+    this.classList.add('ft-active');
+    this.removeEventListener('touchstart', onFirstT);
+  }, { passive: true });
+
+  // ---------- SoftAurora (Footer background) ----------
+  initSoftAurora(document.getElementById('footer-aurora'), {
+    speed:                 0.7,
+    scale:                 1.5,
+    brightness:            1.0,
+    color1:                '#7C3AED',
+    color2:                '#06B6D4',
+    noiseFrequency:        6,
+    noiseAmplitude:        1.0,
+    bandHeight:            0.5,
+    bandSpread:            0.7,
+    octaveDecay:           0.1,
+    layerOffset:           0,
+    colorSpeed:            0.8,
+    enableMouseInteraction: true,
+    mouseInfluence:        0.25,
+  });
 
   // ---------- DockNavbar (footer) ----------
   initDockNavbar(document.getElementById('dock-navbar'), [
